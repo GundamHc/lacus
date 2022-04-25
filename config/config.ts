@@ -3,8 +3,8 @@ import menus from './menus';
 import { StyleImportBabel } from '../src/utils/plugin';
 
 export default defineConfig({
-  base: 'lacus',
-  publicPath: 'lacus',
+  base: '/lacus',
+  publicPath: '/lacus/',
   title: 'lacus',
   favicon: '/favicon.svg',
   logo: '/logo.png',
@@ -15,9 +15,6 @@ export default defineConfig({
     ['en-US', 'English'],
   ],
   menus,
-  alias: {
-    'lacus/hooks': 'lacus/hooks',
-  },
   dynamicImport: {},
   extraBabelPlugins: [
     StyleImportBabel(),
