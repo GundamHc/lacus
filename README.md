@@ -4,6 +4,10 @@
 
 <h1 align="center">lacus</h1>
 
+## 📚 文档
+
+- [中文](https://gundamhc.github.io/lacus/)
+
 ## 📦 安装
 
 ```bash | pure
@@ -69,5 +73,6 @@ import { StyleImportBabel } from 'lacus/lib/utils/plugin';
 
 ## 🚀 TODO
 
+- 修复中文文档样式丢失 BUG
 - 增加全局样式引入方式
 - 增加 UMD 打包产物
