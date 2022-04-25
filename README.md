@@ -36,7 +36,6 @@ import 'lacus/lib/styles/antd.less';
 
 ```ts | pure
 // vite.cofig
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { StyleImportVite } from 'lacus/lib/utils/plugin';
@@ -61,7 +60,6 @@ export default defineConfig({
 
 ```ts | pure
 // .babelrc
-
 import { StyleImportBabel } from 'lacus/lib/utils/plugin';
 
 {
