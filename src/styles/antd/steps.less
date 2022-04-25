@@ -1,0 +1,43 @@
+@process-tail-color: @under-line-color; // 分割线颜色
+
+// 步骤图标
+.@{ant-prefix}-steps-item-icon {
+  .@{ant-prefix}-steps-icon {
+    display: block;
+    line-height: 30px;
+    text-align: center;
+  }
+}
+
+// 进行中
+.@{ant-prefix}-steps-item-wait {
+  .@{ant-prefix}-steps-item-icon {
+    background-color: transparent;
+    border-color: @primary-color;
+    & > .@{ant-prefix}-steps-icon {
+      color: @primary-color;
+    }
+  }
+}
+
+// 已完成
+.@{ant-prefix}-steps-item-finish {
+  .@{ant-prefix}-steps-item-icon {
+    background-color: @success-color;
+    border-color: @success-color;
+    & > .@{ant-prefix}-steps-icon {
+      color: @text-color;
+    }
+  }
+}
+
+// 错误
+.@{ant-prefix}-steps-item-error {
+  .@{ant-prefix}-steps-item-icon {
+    background-color: @error-color;
+    border-color: @error-color;
+    & > .@{ant-prefix}-steps-icon {
+      color: @text-color;
+    }
+  }
+}

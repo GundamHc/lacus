@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "loose": true,
+        "modules": false,
+      }
+    ],
+    "@babel/typescript",
+    "@babel/react"
+  ],
+  "ignore": [
+    "**/*.d.ts"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "babel-plugin-transform-async-to-promises"
+  ]
+}

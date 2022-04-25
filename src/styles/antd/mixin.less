@@ -1,0 +1,70 @@
+// 可点击元素颜色
+.clickable-color(@color) {
+  color: @color;
+
+  &:hover,
+  &:focus {
+    color: lighten(@color, 10%);
+  }
+
+  &:active {
+    color: darken(@color, 10%);
+  }
+}
+
+// 虚拟滚动样式
+.virtual-scrollbar(@scrollbar-prefix-cls){
+  .@{scrollbar-prefix-cls}-list-scrollbar-show{
+    width: @scrollbar-width !important;
+
+    .@{scrollbar-prefix-cls}-list-scrollbar-thumb{
+      border-radius: @border-radius-base !important;
+      background-color: @scrollbar-color !important;
+    }
+  }
+}
+
+
+// 树形控件样式
+.tree-custom(@tree-prefix-cls,@line-height) {
+  .@{tree-prefix-cls} {
+    &-show-line {
+      .@{tree-prefix-cls}-switcher {
+        line-height: @line-height;
+        color: @primary-color;
+        background: transparent;
+      }
+    }
+
+    .@{tree-prefix-cls}-treenode {
+      width: 100%;
+      padding-bottom: @border-width-base;
+
+      .@{tree-prefix-cls}-node-content-wrapper {
+        flex: 1;
+        padding: 0;
+        border-radius: @border-radius-sm;
+
+        .@{tree-prefix-cls}-title {
+          min-height: @line-height;
+          line-height: @line-height;
+          padding: 0 calc(@line-height / 4);
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .@{tree-prefix-cls}-switcher-leaf-line{
+        &::before,
+        &::after{
+          border-color: @primary-color;
+        }
+      }
+
+      .@{tree-prefix-cls}-checkbox {
+        margin: calc((@line-height - @checkbox-size) / 2) calc(@checkbox-size / 4);
+      }
+    }
+  }
+}

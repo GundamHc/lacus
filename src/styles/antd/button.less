@@ -1,0 +1,35 @@
+@btn-disable-border: @disabled-color; // 禁用状态下按钮边框颜色
+@btn-default-ghost-color: @text-color; // 默认状态下幽灵按钮文本色
+@btn-default-ghost-border: @primary-color; // 默认状态下幽灵按钮边框颜色
+
+// 链接按钮
+.@{ant-prefix}-btn-link {
+  &:hover,
+  &:focus,
+  &:active {
+    & > span {
+      text-decoration: underline;
+    }
+  }
+  &[disabled] {
+    &:hover,
+    &:focus,
+    &:active {
+      & > span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// 文字按钮
+.@{ant-prefix}-btn-text {
+  &:hover,
+  &:focus {
+    color: lighten(@primary-color, 10%);
+  }
+
+  &:active {
+    color: darken(@primary-color, 10%);
+  }
+}

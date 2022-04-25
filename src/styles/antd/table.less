@@ -1,0 +1,15 @@
+@table-bg: @popup-bg; // 表格背景颜色
+@table-header-bg: lighten(@table-bg, 10%); // 表格头部背景颜色
+@table-row-hover-bg: darken(@table-bg, 5%); // 表格行 hover 时背景颜色
+@table-selected-row-bg: @popup-bg; // 表格选中行背景颜色
+@table-selected-row-hover-bg: @table-row-hover-bg; // 表格选中行 hover 时背景颜色
+@table-border-color: @border-color-split; // 表格边框颜色
+
+// 表格选中项边框颜色
+.@{ant-prefix}-table-tbody {
+  & > tr.@{ant-prefix}-table-row-selected {
+    & > td {
+      border-color: @table-border-color;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@select-dropdown-bg: @popup-bg; // 下拉背景颜色
+@select-item-selected-bg: @item-selected-bg; // 单选选中项背景颜色
+@select-item-active-bg: @item-hover-bg; // 鼠标悬浮项背景颜色
+@select-selection-item-bg: @primary-color; // 多选选择项背景颜色
+@select-selection-item-border-color: @primary-color; // 多选选择项边框颜色
+
+// 最小宽度
+.@{ant-prefix}-select {
+  min-width: 100px;
+}
+
+// 下拉箭头和清除按钮调整为默认箭头颜色
+.@{ant-prefix}-select-arrow,
+.@{ant-prefix}-select-clear {
+  .clickable-color(@primary-color);
+}
+
+// 选择框禁用状态样式
+.@{ant-prefix}-select-disabled.@{ant-prefix}-select {
+  .@{ant-prefix}-select-selector {
+    border-color: @disabled-color;
+  }
+  .@{ant-prefix}-select-arrow {
+    color: @disabled-color;
+  }
+}
+
+// 多选选中项添加下边框，选中按钮调整为文本色
+.@{ant-prefix}-select-item-option-selected:not(.@{ant-prefix}-select-item-option-disabled) {
+  background-color: @item-selected-bg;
+
+  &:hover {
+    background-color: darken(@item-selected-bg, 2%);
+  }
+  &:not(:last-child) {
+    border-bottom: @border-width-base @border-style-base @popup-bg;
+  }
+
+  .@{ant-prefix}-select-item-option-state {
+    color: @text-color;
+  }
+}
+
+.@{ant-prefix}-select-multiple {
+  // 选中项移除按钮
+  .@{ant-prefix}-select-selection-item-remove {
+    .clickable-color(@primary-color-grey);
+    & > .@{ant-prefix}icon {
+      vertical-align: 0;
+    }
+  }
+  // 选择框禁用状态下的多选标签
+  &.@{ant-prefix}-select-disabled {
+    .@{ant-prefix}-select-selection-item {
+      border-color: @disabled-item-selected-bg;
+      background-color: @disabled-item-selected-bg;
+    }
+  }
+}
+
+// 修改虚拟滚动条样式
+.virtual-scrollbar(~'rc-virtual');
