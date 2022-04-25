@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[8],{eQBn:function(t,e,n){"use strict";n.r(e);n("DYRE");var a=n("zeV3"),o=n("0Owb"),s=n("k1fw"),w=n("q1tI"),i=n.n(w),r=t=>{var e=t.style,n=t.justify,w=t.bottom,r=Object(s["a"])({width:"100%",marginBottom:w,justifyContent:n},e);return i.a.createElement(a["b"],Object(o["a"])({},t,{style:r}))};e["default"]=r}}]);
