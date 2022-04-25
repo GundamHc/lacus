@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="100" src="./public/logo.png">
+    <img width="100" src="https://pic.imgdb.cn/item/6266a572239250f7c5ebfa06.png">
 </p>
 
 <h1 align="center">lacus</h1>
