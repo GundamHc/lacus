@@ -15,6 +15,8 @@ export default defineConfig({
     ['en-US', 'English'],
   ],
   menus,
+  webpack5: {},
+  exportStatic: {},
   dynamicImport: {},
   extraBabelPlugins: [
     StyleImportBabel(),
