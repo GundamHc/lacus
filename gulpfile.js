@@ -96,6 +96,10 @@ gulp.task('es', function () {
   return compileScriptsTask('ESNext', 'es/');
 });
 
+gulp.task('copyAssets', function () {
+  return gulp.src('src/assets/**').pipe(gulp.dest('lib/assets')).pipe(gulp.dest('es/assets'));
+});
+
 gulp.task('declaration', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     declaration: true,
@@ -106,4 +110,4 @@ gulp.task('declaration', function () {
 
 gulp.task('less', gulp.parallel(copyLess, lessComponents, lessHooks));
 
-exports.default = gulp.series('clean', 'cjs', 'es', 'declaration', 'less');
+exports.default = gulp.series('clean', 'cjs', 'es', 'copyAssets', 'declaration', 'less');
