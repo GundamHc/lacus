@@ -5,13 +5,14 @@
     "name": "ashina",
     "email": "agodfu@outlook.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "gulp",
     "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "np --no-cleanup --no-tests --any-branch",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "new": "plop --plopfile ./scripts/plopfile.ts",
     "test": "umi-test",
@@ -60,6 +61,7 @@
     "gulp-less": "^5.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "inquirer": "^8.2.2",
+    "np": "^7.6.1",
     "path": "^0.12.7",
     "plop": "2.6.0",
     "prettier": "^2.6.2",

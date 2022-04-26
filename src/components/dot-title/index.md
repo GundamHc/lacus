@@ -1,3 +1,10 @@
+---
+nav:
+  order: 2
+  path: /components
+  title: '组件'
+---
+
 ## DotTitle
 
 ```tsx
