@@ -3,7 +3,7 @@
  * @Author: 智慧能源事业部-阳昊宸
  */
 
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import useTreeHighlight from './useTreeSearchable ';
 import useTreeOperable from './useTreeOperable';
 import { TreeActionBarProps } from '../../hooks/useTreePlus/components/tree-action-bar';

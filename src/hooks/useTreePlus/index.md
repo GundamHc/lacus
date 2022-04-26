@@ -1,7 +1,7 @@
 ## useTreePlus
 
 <code
-  src="./demo/base.tsx"
+  src="./demo/basic.tsx"
   title="基本使用"
 />
 

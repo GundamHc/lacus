@@ -6,8 +6,8 @@ export default defineConfig({
   base: '/lacus',
   publicPath: '/lacus/',
   title: 'lacus',
-  favicon: '/favicon.svg',
-  logo: '/logo.png',
+  favicon: '/lacus/favicon.svg',
+  logo: '/lacus/logo.png',
   outputPath: 'docs-dist',
   mode: 'site',
   locales: [
