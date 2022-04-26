@@ -27,9 +27,7 @@ const TreeActionBar: React.FC<TreeActionBarProps> = props => {
         {onAddChild && (
           <Tooltip title="添加子级">
             <div className="tree-action-bar-icon" onClick={() => onAddChild(value)}>
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#ab-add-children"></use>
-              </svg>
+              <i className="iconfont icon-add"></i>
             </div>
           </Tooltip>
         )}
@@ -41,33 +39,25 @@ const TreeActionBar: React.FC<TreeActionBarProps> = props => {
               <ul className="tree-action-bar-menu">
                 {onEdit && (
                   <li onClick={() => onEdit(value)}>
-                    <svg className="icon" aria-hidden="true">
-                      <use xlinkHref="#ab-edit"></use>
-                    </svg>
+                    <i className="iconfont icon-k-i-edit1"></i>
                     <span>编辑</span>
                   </li>
                 )}
                 {onAddBrother && (
                   <li onClick={() => onAddBrother(value)}>
-                    <svg className="icon" aria-hidden="true">
-                      <use xlinkHref="#ab-add-brother"></use>
-                    </svg>
+                    <i className="iconfont icon-k-i-edit1"></i>
                     <span>添加同级</span>
                   </li>
                 )}
                 {onMove && (
                   <li onClick={() => onMove(value)}>
-                    <svg className="icon" aria-hidden="true">
-                      <use xlinkHref="#ab-move-to"></use>
-                    </svg>
+                    <i className="iconfont icon-k-i-edit1"></i>
                     <span>移动到</span>
                   </li>
                 )}
                 {onDelete && (
                   <li onClick={() => onDelete(value)}>
-                    <svg className="icon" aria-hidden="true">
-                      <use xlinkHref="#ab-delete"></use>
-                    </svg>
+                    <i className="iconfont icon-k-i-delete"></i>
                     <span>删除</span>
                   </li>
                 )}
@@ -76,9 +66,7 @@ const TreeActionBar: React.FC<TreeActionBarProps> = props => {
             placement="bottomRight"
           >
             <div className="tree-action-bar-icon">
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#ab-dot-menu"></use>
-              </svg>
+              <i className="iconfont icon-add"></i>
             </div>
           </Popover>
         )}

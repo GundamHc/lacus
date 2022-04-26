@@ -14,6 +14,13 @@ export default defineConfig({
     ['zh-CN', '中文'],
     ['en-US', 'English'],
   ],
+  navs: [
+    null,
+    {
+      title: 'Github',
+      path: 'https://github.com/GundamHc/lacus',
+    },
+  ],
   menus,
   webpack5: {},
   exportStatic: {},

@@ -2,7 +2,7 @@
 title: lacus
 hero:
   title: lacus
-  desc: antd 二次封装
+  desc: 基于 antd 二次封装
   actions:
     - text: 开始使用
       link: /guide
