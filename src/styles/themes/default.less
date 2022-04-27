@@ -1,0 +1,114 @@
+@ant-prefix: ant; // Antd prefix
+@body-background: #132555; // 背景颜色
+
+@primary-color: #1a81f4; // 全局主色
+@primary-color-grey: #f5f5f5; // 全局主色灰
+
+@scrollbar-width: 15px; // 滚动条宽度
+@scrollbar-bg: transparent; // 滚动条背景色
+@scrollbar-color: darken(@primary-color, 25%); // 滚动条颜色
+
+@font-size-base: 14px; // 主字号
+@checkbox-size: 16px; // 复选框大小
+@tree-title-line-height: 28px; // 树节点标题行高
+
+@text-color: #fff; // 主文本色
+@text-color-secondary: #ccc; // 全局次文本色
+@link-color: @primary-color; // 链接色
+@arrow-color: #67afff; // 全局箭头色
+@heading-color: #fff; // 标题色
+
+@popup-bg: #142f65; // 弹出层背景颜色
+@background-color-light: @primary-color; // 头部和选中项背景颜色
+@component-background: #0e1e47; // 组件背景颜色
+@card-background: @popup-bg; // 卡片背景色
+@popover-bg: @popup-bg; // 气泡卡片背景颜色
+
+@disabled-color: #676a7c; // 失效色
+@disabled-bg: #2f394f; // 失效背景颜色
+@disabled-item-selected-color: #bdbec4; // 失效选中项颜色
+@disabled-item-selected-bg: #696b72; // 失效选中项背景颜色
+
+@item-selected-bg: #1753a5; // 选中项背景颜色
+@item-hover-bg: #294e8b; // 鼠标悬浮项背景颜色
+@item-active-bg: @item-selected-bg; // 激活项背景颜色
+
+@border-width-base: 1px; // 边框宽度
+@border-style-base: solid; // 边框样式
+@border-color-base: @primary-color; // 边框颜色
+@border-color-split: #1b223e; // 分割线色
+@under-line-color: #3f4e5c; // 底部分割线色
+
+@success-color: #02c397; // 成功色
+@warning-color: #faad14; // 警告色
+@error-color: #ff5847; // 错误色
+
+@border-radius-base: 4px; // 圆角
+@border-radius-sm: 2px; // 小圆角
+@box-shadow-base: 0px 2px 20px 0px rgba(12, 14, 21, 0.33); // 浮层阴影
+
+// button
+@btn-disable-border: @disabled-color; // 禁用状态下按钮边框颜色
+@btn-default-ghost-color: @text-color; // 默认状态下幽灵按钮文本色
+@btn-default-ghost-border: @primary-color; // 默认状态下幽灵按钮边框颜色
+
+// cascader
+@cascader-item-selected-bg: @item-selected-bg; // 级联选择选中项颜色
+
+// checkbox
+@checkbox-check-bg: transparent; // 多选框背景色
+@checkbox-border-radius: @border-radius-sm; // 多选框圆角
+
+// date-picker
+@picker-basic-cell-active-with-range-color: @item-hover-bg; // 日期范围选择选中范围中间背景颜色
+@picker-basic-cell-hover-with-range-color: @item-selected-bg; // 日期范围选择选中范围中间预选中背景颜色
+
+// input-number
+@input-number-handler-active-bg: darken(@component-background, '10%'); // 加减按钮 active 颜色
+
+// message
+@message-notice-content-padding: 6px 16px; // 全局提示内间距
+
+// radio
+@radio-focus-shadow: 0 0 0 1px @primary-color; // 单选框聚焦阴影
+@radio-dot-disabled-color: @disabled-color; // 单选框禁用状态圆点颜色
+@radio-button-bg: transparent; // 单选框背景色
+
+// select
+@select-dropdown-bg: @popup-bg; // 下拉背景颜色
+@select-item-selected-bg: @item-selected-bg; // 单选选中项背景颜色
+@select-item-active-bg: @item-hover-bg; // 鼠标悬浮项背景颜色
+@select-selection-item-bg: @primary-color; // 多选选择项背景颜色
+@select-selection-item-border-color: @primary-color; // 多选选择项边框颜色
+
+// process
+@process-tail-color: @under-line-color; // 分割线颜色
+
+// table
+@table-bg: @popup-bg; // 表格背景颜色
+@table-header-bg: lighten(@table-bg, 10%); // 表格头部背景颜色
+@table-row-hover-bg: darken(@table-bg, 5%); // 表格行 hover 时背景颜色
+@table-selected-row-bg: @popup-bg; // 表格选中行背景颜色
+@table-selected-row-hover-bg: @table-row-hover-bg; // 表格选中行 hover 时背景颜色
+@table-border-color: @border-color-split; // 表格边框颜色
+
+// tabs
+@tabs-card-head-background: @popup-bg; // 标签卡头部背景色
+
+// tooltip
+@tooltip-bg: @primary-color; // 提示框背景色
+@tooltip-border-radius: @border-radius-sm; // 提示框圆角
+
+// transfer
+@transfer-item-hover-bg: @item-hover-bg; // 穿梭框背景色
+@transfer-item-selected-hover-bg: @item-hover-bg; // 穿梭框悬浮背景色
+
+// tree
+@tree-bg: transparent; // 树背景色
+@tree-node-selected-bg: @item-selected-bg; // 树节点选中背景色
+
+// dot-title
+@dot-title-padding: 4px;
+@dot-title-margin-bottom: 12px;
+@dot-title-content-height: 32px;
+@dot-title-dot-size: 12px;

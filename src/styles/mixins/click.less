@@ -1,0 +1,17 @@
+// 点击颜色
+.clickable-color(@color) {
+  color: @color;
+
+  &:hover,
+  &:focus {
+    color: lighten(@color, 10%);
+  }
+
+  &:active {
+    color: darken(@color, 10%);
+  }
+}
+
+
+
+

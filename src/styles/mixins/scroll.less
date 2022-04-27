@@ -1,0 +1,11 @@
+// 虚拟滚动样式
+.virtual-scrollbar(@scrollbar-prefix-cls){
+  .@{scrollbar-prefix-cls}-list-scrollbar-show{
+    width: @scrollbar-width !important;
+
+    .@{scrollbar-prefix-cls}-list-scrollbar-thumb{
+      border-radius: @border-radius-base !important;
+      background-color: @scrollbar-color !important;
+    }
+  }
+}

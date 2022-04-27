@@ -1,0 +1,19 @@
+@import '../../themes/index.less';
+@import '../../mixins/click.less';
+
+// 日历图标颜色
+.@{ant-prefix}-picker-suffix {
+  color: @primary-color;
+}
+
+// 清除图标颜色
+.@{ant-prefix}-picker-clear {
+  .clickable-color(@primary-color);
+}
+
+// 禁用状态下边框颜色
+.@{ant-prefix}-picker {
+  &.@{ant-prefix}-picker-disabled {
+    border-color: @disabled-color;
+  }
+}

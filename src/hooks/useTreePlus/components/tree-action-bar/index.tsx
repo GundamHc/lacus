@@ -27,7 +27,7 @@ const TreeActionBar: React.FC<TreeActionBarProps> = props => {
         {onAddChild && (
           <Tooltip title="添加子级">
             <div className="tree-action-bar-icon" onClick={() => onAddChild(value)}>
-              <i className="iconfont icon-add"></i>
+              <i className="iconfont icon-ziji"></i>
             </div>
           </Tooltip>
         )}
@@ -39,19 +39,19 @@ const TreeActionBar: React.FC<TreeActionBarProps> = props => {
               <ul className="tree-action-bar-menu">
                 {onEdit && (
                   <li onClick={() => onEdit(value)}>
-                    <i className="iconfont icon-k-i-edit1"></i>
+                    <i className="iconfont icon-edit"></i>
                     <span>编辑</span>
                   </li>
                 )}
                 {onAddBrother && (
                   <li onClick={() => onAddBrother(value)}>
-                    <i className="iconfont icon-k-i-edit1"></i>
+                    <i className="iconfont icon-tongji"></i>
                     <span>添加同级</span>
                   </li>
                 )}
                 {onMove && (
                   <li onClick={() => onMove(value)}>
-                    <i className="iconfont icon-k-i-edit1"></i>
+                    <i className="iconfont icon-yidongdao"></i>
                     <span>移动到</span>
                   </li>
                 )}

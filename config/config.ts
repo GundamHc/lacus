@@ -25,15 +25,5 @@ export default defineConfig({
   webpack5: {},
   exportStatic: {},
   dynamicImport: {},
-  extraBabelPlugins: [
-    StyleImportBabel(),
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-    ],
-  ],
+  extraBabelPlugins: [...StyleImportBabel()],
 });

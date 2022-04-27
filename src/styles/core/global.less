@@ -1,0 +1,15 @@
+@import '../../assets/font/iconfont.css';
+
+// 全局滚动条样式
+* {
+  &::-webkit-scrollbar {
+    width: @scrollbar-width;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: @scrollbar-bg;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: @border-radius-base;
+    background-color: @scrollbar-color;
+  }
+}

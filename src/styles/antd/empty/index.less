@@ -1,0 +1,49 @@
+@import '../../themes/index.less';
+
+// 空状态文字颜色
+.@{ant-prefix}-empty-description {
+  color: @disabled-color;
+}
+
+// 空状态默认风格
+.@{ant-prefix}-empty-img-default {
+  &-ellipse {
+    fill: @component-background;
+  }
+
+  &-path {
+    &-1 {
+      fill: @disabled-bg;
+    }
+    &-3 {
+      fill: @primary-color;
+    }
+
+    &-4 {
+      fill: darken(@primary-color, 15%);
+    }
+
+    &-5 {
+      fill: darken(@primary-color, 15%);
+    }
+  }
+
+  &-g {
+    fill: darken(@primary-color, 30%);
+  }
+}
+
+// 空状态简洁风格
+.@{ant-prefix}-empty-img-simple {
+  &-ellipse {
+    fill: @component-background;
+  }
+
+  &-g {
+    stroke: @primary-color;
+  }
+
+  &-path {
+    fill: darken(@primary-color, 20%);
+  }
+}
