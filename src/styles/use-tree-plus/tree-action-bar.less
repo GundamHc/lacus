@@ -1,0 +1,65 @@
+@import '../themes/index.less';
+
+.tree-action-bar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tree-action-bar-extra {
+  display: flex;
+  align-items: center;
+}
+
+.tree-action-bar-icon {
+  padding: 0 4px;
+
+  & > img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.tree-action-bar-menu {
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+
+  & > li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: @text-color;
+    padding: 0 20px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: @item-hover-bg;
+    }
+
+    .iconfont {
+      margin-right: 8px;
+    }
+  }
+}
+
+.tree-action-bar-popover {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}
+
+.tree-action-bar,
+.tree-action-bar-menu {
+  .iconfont {
+    color: lighten(@primary-color, 10%);
+
+    &:hover,
+    &:active {
+      color: @text-color;
+    }
+  }
+}

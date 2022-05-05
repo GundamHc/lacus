@@ -1,0 +1,10 @@
+@import '../themes/index.less';
+
+// 表格选中项边框颜色
+.@{ant-prefix}-table-tbody {
+  & > tr.@{ant-prefix}-table-row-selected {
+    & > td {
+      border-color: @table-border-color;
+    }
+  }
+}

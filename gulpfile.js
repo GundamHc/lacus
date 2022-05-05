@@ -57,29 +57,16 @@ function copyLess() {
 }
 
 /**
- * 生成组件 css文件
+ * 生成 css文件
  */
-function lessComponents() {
+function lessToCss() {
   return gulp
-    .src('src/components/**/*.less')
+    .src('src/styles/**/*.less')
     .pipe(less()) // 处理less文件
     .pipe(autoprefixer()) // 根据browserslistrc增加前缀
     .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
-    .pipe(gulp.dest('lib/components/'))
-    .pipe(gulp.dest('es/components/'));
-}
-
-/**
- *  生成 hooks css文件
- */
-function lessHooks() {
-  return gulp
-    .src('src/hooks/**/*.less')
-    .pipe(less()) // 处理less文件
-    .pipe(autoprefixer()) // 根据browserslistrc增加前缀
-    .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
-    .pipe(gulp.dest('lib/hooks/'))
-    .pipe(gulp.dest('es/hooks/'));
+    .pipe(gulp.dest('lib/styles/'))
+    .pipe(gulp.dest('es/styles/'));
 }
 
 gulp.task('clean', async function () {
@@ -108,6 +95,6 @@ gulp.task('declaration', function () {
   return tsProject.src().pipe(tsProject()).pipe(gulp.dest('es/')).pipe(gulp.dest('lib/'));
 });
 
-gulp.task('less', gulp.parallel(copyLess, lessComponents, lessHooks));
+gulp.task('less', gulp.parallel(copyLess, lessToCss));
 
 exports.default = gulp.series('clean', 'cjs', 'es', 'copyAssets', 'declaration', 'less');

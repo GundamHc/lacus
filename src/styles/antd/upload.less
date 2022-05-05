@@ -1,0 +1,33 @@
+@import '../themes/index.less';
+
+// 已上传文件列表
+.@{ant-prefix}-upload-list-text-container {
+  &:first-child {
+    margin-top: 6px;
+  }
+  &:not(:last-child) {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+  }
+}
+.@{ant-prefix}-upload-list-item {
+  cursor: pointer;
+  height: auto;
+  margin: 0;
+  padding: 6px;
+  background-color: @popup-bg;
+
+  &:hover {
+    background-color: @item-hover-bg;
+
+    .@{ant-prefix}-upload-list-item-info {
+      background-color: transparent;
+    }
+  }
+
+  &-progress {
+    padding: 0;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+  }
+}
