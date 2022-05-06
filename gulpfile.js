@@ -74,15 +74,19 @@ function packageLess() {
       through2.obj(function (file, encoding, next) {
         const content = file.contents.toString(encoding);
         file.contents = Buffer.from(content.replace(/~/g, ''));
+        file.path = file.path.replace('index.less', 'index-pure.less');
         this.push(file);
         next();
       }),
     )
+    .pipe(gulp.dest(`lib/styles/`))
+    .pipe(gulp.dest(`es/styles/`))
     .pipe(less({ javascriptEnabled: true }))
     .pipe(
       through2.obj(function (file, encoding, next) {
         const content = file.contents.toString(encoding);
         file.contents = Buffer.from(content.replace('../../assets', '../assets'));
+        file.path = file.path.replace('index-pure.css', 'index.css');
         this.push(file);
         next();
       }),
