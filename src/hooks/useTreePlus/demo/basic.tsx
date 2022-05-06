@@ -44,21 +44,29 @@ const mockTreeData = [
 ];
 
 export default function () {
-  const { treeData, expandedKeys, checkedKeys, SearchBar, onExpand, onCheck, onSelect } =
-    useTreePlus({
-      dataSource: mockTreeData,
-      searchable: true,
-      operable: true,
-      checkable: true,
-      checkRetain: true,
-      actionBarProps: {
-        onAddChild: () => null,
-        onDelete: () => null,
-        onAddBrother: () => null,
-        onEdit: () => null,
-        onMove: () => null,
-      },
-    });
+  const {
+    treeData,
+    expandedKeys,
+    checkedKeys,
+    selectedKeys,
+    SearchBar,
+    onExpand,
+    onCheck,
+    onSelect,
+  } = useTreePlus({
+    dataSource: mockTreeData,
+    searchable: true,
+    operable: true,
+    checkable: true,
+    checkRetain: true,
+    actionBarProps: {
+      onAddChild: () => null,
+      onDelete: () => null,
+      onAddBrother: () => null,
+      onEdit: () => null,
+      onMove: () => null,
+    },
+  });
 
   return (
     <Fragment>
@@ -72,6 +80,7 @@ export default function () {
           treeData={treeData}
           checkedKeys={checkedKeys}
           expandedKeys={expandedKeys}
+          selectedKeys={selectedKeys}
           showLine={{ showLeafIcon: false }}
         />
       </Card>

@@ -41,10 +41,9 @@ export function DevStyleImportBabel(): any[] {
         } else if (hooks.includes(toCamel(name))) {
           return `lacus/es/hooks/${toCamel(name)}`;
         }
-        return 'lacus/es/styles/safety';
       },
       style() {
-        return `lacus/es/styles`;
+        return `lacus/es/styles/index.less`;
       },
     },
     'lacus',

@@ -35,7 +35,7 @@ function compileScriptsTask(module, destDir) {
           next();
         } else {
           // 处理 style/index.js
-          if (file.path.match(/(\/|\\)(style|styles)(\/|\\)index\.js/)) {
+          if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
             this.push(file.clone());
             const content = file.contents.toString(encoding);
             file.contents = Buffer.from(cssInjection(content)); // 处理文件内容
@@ -69,24 +69,13 @@ function lessToCss(folder) {
  */
 function packageLess() {
   return gulp
-    .src('src/styles/index.less')
-    .pipe(
-      through2.obj(function (file, encoding, next) {
-        const content = file.contents.toString(encoding);
-        file.contents = Buffer.from(content.replace(/~/g, ''));
-        file.path = file.path.replace('index.less', 'index-pure.less');
-        this.push(file);
-        next();
-      }),
-    )
-    .pipe(gulp.dest(`lib/styles/`))
-    .pipe(gulp.dest(`es/styles/`))
+    .src(['src/styles/index-pure.less', 'src/styles/base-pure.less'])
     .pipe(less({ javascriptEnabled: true }))
     .pipe(
       through2.obj(function (file, encoding, next) {
         const content = file.contents.toString(encoding);
         file.contents = Buffer.from(content.replace('../../assets', '../assets'));
-        file.path = file.path.replace('index-pure.css', 'index.css');
+        file.path = file.path.replace(/-pure/g, '');
         this.push(file);
         next();
       }),
