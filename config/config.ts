@@ -5,6 +5,7 @@ import { DevStyleImportBabel } from '../src/utils/plugin';
 export default defineConfig({
   base: '/lacus',
   mfsu: {},
+  history: { type: 'hash' },
   publicPath: '/lacus/',
   title: 'lacus',
   favicon: '/lacus/favicon.svg',
@@ -33,7 +34,6 @@ export default defineConfig({
   ],
   menus,
   webpack5: {},
-  exportStatic: {},
   dynamicImport: {},
   extraBabelPlugins: [DevStyleImportBabel()],
 });
