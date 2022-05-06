@@ -48,6 +48,12 @@ exports['default'] = function (plop) {
           pattern: '/* PLOP_INJECT_EXPORT */',
           template: `export { default as {{name}} } from './{{type}}/${fileName}';`,
         },
+        {
+          type: 'append',
+          path: path.resolve(__dirname, '../src/styles/index.less'),
+          pattern: '/* PLOP_INJECT_IMPORT_LESS */',
+          template: `@import '../{{type}}/${fileName}/style/index.less';`,
+        },
       ];
     },
   });

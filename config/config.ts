@@ -19,6 +19,7 @@ export default defineConfig({
     `
       a { text-decoration: none };
       body { padding: 12px };
+      .__dumi-default-layout { min-height: auto !important; }
       .__dumi-default-previewer-browser-nav { display: none; };
       .__dumi-default-previewer-demo { margin-bottom: 12px; };
     `,

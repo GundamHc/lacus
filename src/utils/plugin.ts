@@ -27,7 +27,7 @@ const hooks = fs.readdirSync(path.resolve(__dirname, '../hooks'));
 /** 包含 style 的 hooks */
 const styledHooks = filterStyledFile(path.resolve(__dirname, '../hooks'));
 /** 包含样式的组件或 hooks */
-const styled = fs.readdirSync(path.resolve(__dirname, '../styles'));
+const styled = [...styledComponents, ...styledHooks];
 
 /** babel-plugin-import 开发环境配置 */
 export function DevStyleImportBabel(): any[] {
@@ -60,7 +60,7 @@ export function StyleImportBabel(): any {
       style(name: string) {
         const fileName = name.split('/')[name.split('/').length - 1];
         if (styled.includes(fileName)) {
-          return `lacus/es/styles/${fileName}`;
+          return `${name}/style`;
         }
         return false;
       },
@@ -74,9 +74,12 @@ export function StyleImportVite(): any {
   return {
     libraryName: 'lacus',
     esModule: true,
+    libraryNameChangeCase: 'camelCase',
     resolveStyle: (name: string) => {
-      if (styled.includes(name)) {
-        return `lacus/es/styles/${name}`;
+      if (styledHooks.includes(name)) {
+        return `lacus/es/hooks/${name}/style`;
+      } else if (styledComponents.includes(toDash(name))) {
+        return `lacus/es/components/${toDash(name)}/style`;
       }
       return '';
     },

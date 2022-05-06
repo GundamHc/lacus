@@ -35,7 +35,7 @@ function compileScriptsTask(module, destDir) {
           next();
         } else {
           // 处理 style/index.js
-          if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
+          if (file.path.match(/(\/|\\)(style|styles)(\/|\\)index\.js/)) {
             this.push(file.clone());
             const content = file.contents.toString(encoding);
             file.contents = Buffer.from(cssInjection(content)); // 处理文件内容
@@ -50,23 +50,53 @@ function compileScriptsTask(module, destDir) {
 }
 
 /**
- * 拷贝less
+ * less 转换成 css
  */
-function copyLess() {
-  return gulp.src('src/**/*.less').pipe(gulp.dest('lib/')).pipe(gulp.dest('es/'));
+function lessToCss(folder) {
+  return function () {
+    return gulp
+      .src(`src/${folder}/**/*.less`)
+      .pipe(less())
+      .pipe(autoprefixer())
+      .pipe(cssnano({ zindex: false, reduceIdents: false }))
+      .pipe(gulp.dest(`lib/${folder}/`))
+      .pipe(gulp.dest(`es/${folder}/`));
+  };
 }
 
 /**
- * 生成 css文件
+ * 打包 css文件
  */
-function lessToCss() {
+function packageLess() {
   return gulp
-    .src('src/styles/**/*.less')
-    .pipe(less()) // 处理less文件
-    .pipe(autoprefixer()) // 根据browserslistrc增加前缀
-    .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
-    .pipe(gulp.dest('lib/styles/'))
-    .pipe(gulp.dest('es/styles/'));
+    .src('src/styles/index.less')
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        const content = file.contents.toString(encoding);
+        file.contents = Buffer.from(
+          content
+            .replace("@import '~antd/lib/style/themes/default.less';", '')
+            .replace("@import '~antd/dist/antd.less';", ''),
+        );
+        this.push(file);
+        next();
+      }),
+    )
+    .pipe(gulp.dest('lib/styles'))
+    .pipe(gulp.dest('es/styles'))
+    .pipe(less())
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        const content = file.contents.toString(encoding);
+        file.contents = Buffer.from(content.replace('../../assets', '../assets'));
+        this.push(file);
+        next();
+      }),
+    )
+    .pipe(autoprefixer())
+    .pipe(cssnano({ zindex: false, reduceIdents: false }))
+    .pipe(gulp.dest(`lib/styles/`))
+    .pipe(gulp.dest(`es/styles/`));
 }
 
 gulp.task('clean', async function () {
@@ -87,6 +117,13 @@ gulp.task('copyAssets', function () {
   return gulp.src('src/assets/**').pipe(gulp.dest('lib/assets')).pipe(gulp.dest('es/assets'));
 });
 
+gulp.task('copyLess', function () {
+  return gulp
+    .src(['src/**/*.less', '!src/styles/index.less'])
+    .pipe(gulp.dest('lib/'))
+    .pipe(gulp.dest('es/'));
+});
+
 gulp.task('declaration', function () {
   const tsProject = ts.createProject('tsconfig.json', {
     declaration: true,
@@ -95,6 +132,17 @@ gulp.task('declaration', function () {
   return tsProject.src().pipe(tsProject()).pipe(gulp.dest('es/')).pipe(gulp.dest('lib/'));
 });
 
-gulp.task('less', gulp.parallel(copyLess, lessToCss));
+gulp.task(
+  'less',
+  gulp.parallel(packageLess, lessToCss('hooks'), lessToCss('components'), lessToCss('styles/core')),
+);
 
-exports.default = gulp.series('clean', 'cjs', 'es', 'copyAssets', 'declaration', 'less');
+exports.default = gulp.series(
+  'clean',
+  'cjs',
+  'es',
+  'copyAssets',
+  'copyLess',
+  'declaration',
+  'less',
+);

@@ -10,7 +10,7 @@ nav:
 ```tsx
 /**
  * title: 基础使用
- * iframe: true
+ * iframe: 100
  */
 
 import React from 'react';
