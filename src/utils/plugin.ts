@@ -51,7 +51,7 @@ export function DevStyleImportBabel(): any[] {
 }
 
 /** babel-plugin-import 配置 */
-export function StyleImportBabel(): any {
+export function StyleImportBabel(css?: boolean): any {
   return [
     'import',
     {
@@ -59,7 +59,7 @@ export function StyleImportBabel(): any {
       style(name: string) {
         const fileName = name.split('/')[name.split('/').length - 1];
         if (styled.includes(fileName)) {
-          return `${name}/style`;
+          return `${name}/style${css ? '/css' : ''}`;
         }
         return false;
       },
@@ -69,16 +69,16 @@ export function StyleImportBabel(): any {
 }
 
 /** vite-plugin-style-import 配置 */
-export function StyleImportVite(): any {
+export function StyleImportVite(css?: boolean): any {
   return {
     libraryName: 'lacus',
     esModule: true,
     libraryNameChangeCase: 'camelCase',
     resolveStyle: (name: string) => {
       if (styledHooks.includes(name)) {
-        return `lacus/es/hooks/${name}/style`;
+        return `lacus/es/hooks/${name}/style${css ? '/css' : ''}`;
       } else if (styledComponents.includes(toDash(name))) {
-        return `lacus/es/components/${toDash(name)}/style`;
+        return `lacus/es/components/${toDash(name)}/style${css ? '/css' : ''}`;
       }
       return '';
     },

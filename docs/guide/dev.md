@@ -4,10 +4,10 @@ nav:
   path: /guide
   title: '文档'
 title: 开发者指南
-order: 2
+order: 3
 ---
 
-## 项目管理
+## 拉取项目
 
 ```bash | pure
 git clone https://github.com/GundamHc/lacus.git
