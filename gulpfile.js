@@ -73,18 +73,12 @@ function packageLess() {
     .pipe(
       through2.obj(function (file, encoding, next) {
         const content = file.contents.toString(encoding);
-        file.contents = Buffer.from(
-          content
-            .replace("@import '~antd/lib/style/themes/default.less';", '')
-            .replace("@import '~antd/dist/antd.less';", ''),
-        );
+        file.contents = Buffer.from(content.replace(/~/g, ''));
         this.push(file);
         next();
       }),
     )
-    .pipe(gulp.dest('lib/styles'))
-    .pipe(gulp.dest('es/styles'))
-    .pipe(less())
+    .pipe(less({ javascriptEnabled: true }))
     .pipe(
       through2.obj(function (file, encoding, next) {
         const content = file.contents.toString(encoding);
@@ -118,10 +112,7 @@ gulp.task('copyAssets', function () {
 });
 
 gulp.task('copyLess', function () {
-  return gulp
-    .src(['src/**/*.less', '!src/styles/index.less'])
-    .pipe(gulp.dest('lib/'))
-    .pipe(gulp.dest('es/'));
+  return gulp.src('src/**/*.less').pipe(gulp.dest('lib/')).pipe(gulp.dest('es/'));
 });
 
 gulp.task('declaration', function () {
