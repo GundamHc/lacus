@@ -57,8 +57,8 @@ function lessToCss(folder) {
     return gulp
       .src(`src/${folder}/**/*.less`)
       .pipe(less())
-      .pipe(autoprefixer())
-      .pipe(cssnano({ zindex: false, reduceIdents: false }))
+      .pipe(autoprefixer({ overrideBrowserslist: ['firefox >= 8', '> 1%', 'last 2 versions'] }))
+      .pipe(cssnano({ zindex: false, reduceIdents: false, autoprefixer: false }))
       .pipe(gulp.dest(`lib/${folder}/`))
       .pipe(gulp.dest(`es/${folder}/`));
   };
@@ -80,8 +80,8 @@ function packageLess() {
         next();
       }),
     )
-    .pipe(autoprefixer())
-    .pipe(cssnano({ zindex: false, reduceIdents: false }))
+    .pipe(autoprefixer({ overrideBrowserslist: ['firefox >= 8', '> 1%', 'last 2 versions'] }))
+    .pipe(cssnano({ zindex: false, reduceIdents: false, autoprefixer: false }))
     .pipe(gulp.dest(`lib/styles/`))
     .pipe(gulp.dest(`es/styles/`));
 }
