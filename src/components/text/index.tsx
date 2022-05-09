@@ -11,16 +11,18 @@ export interface TextProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  /** 高度 */
+  height?: string | number;
   /** 上边距 */
-  top?: number;
+  top?: string | number;
   /** 下边距 */
-  bottom?: number;
+  bottom?: string | number;
   /** 内边距 */
-  padding?: number;
+  padding?: string | number;
   /** 字体颜色 */
   color?: React.CSSProperties['color'];
   /** 字体大小 */
-  size?: number;
+  size?: string | number;
   /** 是否支持溢出省略 */
   ellipsis?: boolean;
   /** 是否支持悬浮显示 */
@@ -51,6 +53,7 @@ const Text: React.FC<TextProps> = props => {
     className,
     style,
     children,
+    height,
   } = props;
 
   ellipsis = Boolean(props.ellipsis || props.rows);
@@ -59,7 +62,8 @@ const Text: React.FC<TextProps> = props => {
 
   const classes = classNames(className, { 'text-ellipsis': ellipsis });
 
-  const marginStyle: React.CSSProperties = {
+  const baseStyle: React.CSSProperties = {
+    height,
     marginTop: top,
     marginBottom: bottom,
     padding,
@@ -69,13 +73,13 @@ const Text: React.FC<TextProps> = props => {
   };
 
   const ellipsisStyle: React.CSSProperties = ellipsis
-    ? { lineClamp: rows, WebkitLineClamp: rows, ...marginStyle }
-    : marginStyle;
+    ? { lineClamp: rows, WebkitLineClamp: rows, ...baseStyle }
+    : baseStyle;
 
   return (
-    <span className={classes} style={ellipsisStyle}>
+    <p className={classes} style={ellipsisStyle}>
       {tooltip ? <Tooltip title={text}>{text}</Tooltip> : text}
-    </span>
+    </p>
   );
 };
 
